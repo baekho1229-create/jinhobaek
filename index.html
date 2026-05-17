@@ -480,14 +480,22 @@ function openProject(idx) {
 
   const main = document.getElementById('proj-img-main');
   main.className = `proj-img-main ${p.color}`;
-  main.innerHTML = `<div class="proj-img-placeholder"><span>${p.images[0]} — 이미지를 여기에 연결하세요</span></div>`;
+  if(p.images && p.images.length > 0 && p.images[0].endsWith('.png') || p.images[0].endsWith('.jpg') || p.images[0].endsWith('.jpeg') || p.images[0].endsWith('.gif') || p.images[0].endsWith('.webp')){
+    main.innerHTML = `<img src="${p.images[0]}" alt="${p.title}"/>`;
+  } else {
+    main.innerHTML = `<div class="proj-img-placeholder"><span>${p.images[0]}</span></div>`;
+  }
 
   const grid = document.getElementById('proj-img-grid');
   grid.innerHTML = '';
   p.images.slice(1).forEach(img => {
     const s = document.createElement('div');
     s.className = `proj-img-slot ${p.color}`;
-    s.innerHTML = `<div class="proj-img-placeholder"><span>${img} — 이미지를 여기에 연결하세요</span></div>`;
+    if(img.endsWith('.png') || img.endsWith('.jpg') || img.endsWith('.jpeg') || img.endsWith('.gif') || img.endsWith('.webp')){
+      s.innerHTML = `<img src="${img}" alt="${p.title}"/>`;
+    } else {
+      s.innerHTML = `<div class="proj-img-placeholder"><span>${img}</span></div>`;
+    }
     grid.appendChild(s);
   });
 
