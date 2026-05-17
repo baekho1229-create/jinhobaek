@@ -547,6 +547,13 @@ function setLang(l) {
 
 renderGrid('all');
 
+// 페이지 로드시 hash 확인
+const initHash = location.hash.replace('#','');
+if(initHash){
+  const initIdx = projects.findIndex(p => p.id === initHash);
+  if(initIdx !== -1) openProject(initIdx);
+}
+
 window.addEventListener('hashchange', () => {
   if(isNavigating) return;
   const hash = location.hash.replace('#','');
