@@ -546,6 +546,18 @@ function setLang(l) {
 }
 
 renderGrid('all');
+
+window.addEventListener('hashchange', () => {
+  const hash = location.hash.replace('#','');
+  if(!hash){
+    document.getElementById('project-page').style.display = 'none';
+    document.getElementById('main-page').style.display = 'block';
+    window.scrollTo(0,0);
+  } else {
+    const idx = projects.findIndex(p => p.id === hash);
+    if(idx !== -1) openProject(idx);
+  }
+});
 </script>
 </body>
 </html>
