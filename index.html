@@ -285,7 +285,7 @@ function renderGrid(filter) {
         <div class="work-cat">${p.category}</div>
         <div class="work-title">${p.title}</div>
       </div>`;
-    card.onclick = () => window.location.href = `${p.id}.html`;
+    card.onclick = () => window.location.href = `projects/${p.id}.html`;
     grid.appendChild(card);
   });
 }
