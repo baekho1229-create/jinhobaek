@@ -548,6 +548,7 @@ function setLang(l) {
 renderGrid('all');
 
 window.addEventListener('hashchange', () => {
+  if(isNavigating) return;
   const hash = location.hash.replace('#','');
   if(!hash){
     document.getElementById('project-page').style.display = 'none';
