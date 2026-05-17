@@ -4,6 +4,10 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Jinho Baek — Illustrator & Motion Designer</title>
+
+<!-- Netlify Identity 위젯 스크립트 (여기에 추가되었습니다) -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 <style>@import url("https://use.typekit.net/mmq0fwm.css");</style>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -326,6 +330,19 @@ function setLang(l) {
 }
 
 renderGrid('all');
+</script>
+
+<!-- 로그인 리다이렉트 스크립트 (여기에 추가되었습니다) -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
 </script>
 </body>
 </html>
