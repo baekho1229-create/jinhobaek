@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Jinho Baek</title>
+<link rel="stylesheet" href="https://use.typekit.net/mmq0fwm.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#FFFFFF;--surface:#F2F2F2;--text:#000000;--muted:#888;--border:#E0E0E0;
+  --pad:2.5rem;
+}
+@media(max-width:768px){:root{--pad:1.25rem;}}
+body{font-family:'sofia-pro',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:15px;cursor:none;}
+h1,h2,.nav-logo,.col-label,.section-label,.exp-title{font-family:'azo-sans-web',sans-serif;}
+a,button{cursor:none;}
+a{color:inherit;text-decoration:none;}
+
+/* CURSOR */
+.cursor-dot{position:fixed;width:8px;height:8px;background:var(--text);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity .2s ease;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--text);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s ease,height .25s ease,background .25s ease;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:56px;}
+.nav-logo{font-weight:700;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.78rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;transition:color .15s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:0.75rem;}
+.lang-toggle{display:flex;gap:2px;font-size:0.75rem;}
+.lang-toggle span{padding:3px 8px;border-radius:3px;cursor:none;color:var(--muted);}
+.lang-toggle span.active{background:var(--text);color:var(--bg);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:none;padding:4px;}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--text);transition:all .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--bg);z-index:99;padding:2rem var(--pad);flex-direction:column;border-top:1px solid var(--border);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{display:block;padding:1.1rem 0;font-size:1.2rem;font-family:'azo-sans-web',sans-serif;font-weight:700;border-bottom:1px solid var(--border);}
+.mobile-contacts{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;}
+.mobile-contacts a{font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}}
+
+/* HERO */
+.about-hero{padding:5rem var(--pad) 4rem;border-bottom:1px solid var(--border);}
+.about-hero-label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;font-family:'azo-sans-web',sans-serif;}
+.about-hero-title{font-size:clamp(2.5rem,6vw,5rem);font-weight:800;letter-spacing:-0.04em;line-height:0.95;margin-bottom:2.5rem;}
+.about-hero-bio{font-size:1rem;color:var(--muted);line-height:1.85;max-width:640px;}
+.about-hero-bio p{margin-bottom:1.2rem;}
+.about-hero-bio p:last-child{margin-bottom:0;}
+@media(max-width:768px){.about-hero{padding:3rem var(--pad);}}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);}
+.two-col > div{padding:3rem var(--pad);}
+.two-col > div:first-child{border-right:1px solid var(--border);}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}.two-col > div:first-child{border-right:none;border-bottom:1px solid var(--border);}}
+
+/* SKILLS */
+.col-label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;}
+.skill-group{margin-bottom:1.5rem;}
+.skill-group:last-child{margin-bottom:0;}
+.skill-group-label{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.skill-pill{padding:0.28rem 0.8rem;background:var(--surface);border-radius:100px;font-size:0.78rem;border:1px solid var(--border);}
+
+/* INFO COL */
+.info-item{margin-bottom:2rem;}
+.info-item:last-child{margin-bottom:0;}
+.info-label{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.info-val{font-size:0.9rem;}
+
+/* EXPERIENCE */
+.experience{padding:3rem var(--pad);border-bottom:1px solid var(--border);}
+.section-label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem;}
+.exp-list{margin-bottom:2.5rem;}
+.exp-list:last-child{margin-bottom:0;}
+.exp-row{display:grid;grid-template-columns:1fr auto;padding:1.1rem 0;border-bottom:1px solid var(--border);align-items:start;gap:1rem;}
+.exp-row:last-child{border-bottom:none;}
+.exp-title{font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;}
+.exp-company{font-size:0.82rem;color:var(--muted);}
+.exp-year{font-size:0.78rem;color:var(--muted);white-space:nowrap;padding-top:2px;}
+@media(max-width:480px){.exp-row{grid-template-columns:1fr;}}
+
+/* CONTACT */
+.contact-bar{padding:3rem var(--pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-bottom:1px solid var(--border);}
+.contact-title{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;letter-spacing:-0.03em;font-family:'azo-sans-web',sans-serif;}
+.contact-links{display:flex;gap:0.75rem;flex-wrap:wrap;}
+.contact-link{padding:0.55rem 1.4rem;border:1px solid var(--border);border-radius:100px;font-size:0.82rem;letter-spacing:0.03em;text-transform:uppercase;transition:all .15s;}
+.contact-link:hover{background:var(--text);color:var(--bg);border-color:var(--text);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+footer{padding:1.2rem var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+footer p{font-size:0.75rem;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Jinho Baek</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Works</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <span class="active" data-lang="en">EN</span>
+      <span data-lang="kr">KR</span>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Works</a>
+  <a href="about.html">About</a>
+  <div class="mobile-contacts">
+    <a href="mailto:baekho1229@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/jin-ho-baek-318387344" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+  </div>
+</div>
+
+<!-- ABOUT HERO -->
+<section class="about-hero reveal">
+  <div class="about-hero-label" data-en="About" data-kr="소개">About</div>
+  <h1 class="about-hero-title">Illustrator &amp;<br>Motion Designer</h1>
+  <div class="about-hero-bio">
+    <p
+      data-en="My goal is simple: make things more &quot;delicious&quot; and make people happier. I believe good design and good food share the same language. Both can connect people. Whether across the table or across borders, sharing a good meal or a good design, needs no words."
+      data-kr="저의 목표는 명확합니다. 모든 것을 더 '맛있게' 표현하여 사람들에게 행복을 전하는 것입니다. 좋은 디자인은 좋은 요리와 닮았습니다. 언어의 장벽을 넘어 사람을 잇는 힘이 있기 때문입니다.">
+      My goal is simple: make things more "delicious" and make people happier. I believe good design and good food share the same language. Both can connect people. Whether across the table or across borders, sharing a good meal or a good design, needs no words.
+    </p>
+    <p
+      data-en="Great recipes bring out the best in its ingredients to make the meal taste better. To do that, I find the right combinations, understand what people enjoy, and choose tools that fit. I approach design the same way. My purpose is clear: to create design that delights, connects and leaves people feeling happy. That is the best kind of flavor."
+      data-kr="잘 짜인 레시피가 재료의 장점을 극대화하듯, 저 또한 적절한 조합과 도구를 찾아내어 사람들의 즐거움을 이끌어냅니다. 기쁨을 주고, 연결을 만들고, 행복한 감정을 남기는 디자인. 제가 추구하는 디자인은 바로 그런 '맛'이 느껴지는 작업입니다.">
+      Great recipes bring out the best in its ingredients to make the meal taste better. To do that, I find the right combinations, understand what people enjoy, and choose tools that fit. I approach design the same way. My purpose is clear: to create design that delights, connects and leaves people feeling happy. That is the best kind of flavor.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS + INFO -->
+<div class="two-col reveal">
+  <div>
+    <div class="col-label" data-en="Skills & Tools" data-kr="기술 및 툴">Skills & Tools</div>
+    <div class="skill-group">
+      <div class="skill-group-label" data-en="Proficient in" data-kr="숙련도 높음">Proficient in</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Cinema 4D</span>
+        <span class="skill-pill">Redshift</span>
+        <span class="skill-pill">Photoshop</span>
+        <span class="skill-pill">Procreate</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label" data-en="Familiar with" data-kr="활용가능">Familiar with</div>
+      <div class="skill-pills">
+        <span class="skill-pill">After Effects</span>
+        <span class="skill-pill">InDesign</span>
+        <span class="skill-pill">Illustrator</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-label" data-en="Info" data-kr="정보">Info</div>
+    <div class="info-item">
+      <div class="info-label" data-en="Based in" data-kr="위치">Based in</div>
+      <div class="info-val" data-en="Los Angeles, CA" data-kr="로스앤젤레스, CA">Los Angeles, CA</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label" data-en="Languages" data-kr="언어">Languages</div>
+      <div class="skill-pills">
+        <span class="skill-pill" data-en="Korean (native)" data-kr="한국어 (모국어)">Korean (native)</span>
+        <span class="skill-pill" data-en="English (conversational)" data-kr="영어 (업무가능)">English (conversational)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="experience reveal">
+  <div class="section-label" data-en="Education" data-kr="학력사항">Education</div>
+  <div class="exp-list">
+    <div class="exp-row">
+      <div>
+        <div class="exp-title">ArtCenter College of Design</div>
+        <div class="exp-company"
+          data-en="Bachelor of Fine Arts in Illustration · Specialization in Motion Illustration · Pasadena, CA"
+          data-kr="일러스트레이션 순수미술 학사 · 모션 일러스트레이션 전공 · Pasadena, CA">
+          Bachelor of Fine Arts in Illustration · Specialization in Motion Illustration · Pasadena, CA
+        </div>
+      </div>
+      <div class="exp-year">2019 – 2025</div>
+    </div>
+  </div>
+
+  <div class="section-label" data-en="Recognition" data-kr="수상 및 전시">Recognition</div>
+  <div class="exp-list">
+    <div class="exp-row">
+      <div>
+        <div class="exp-title">Provost's List</div>
+        <div class="exp-company"
+          data-en="ArtCenter College of Design · GPA 3.8 or higher"
+          data-kr="ArtCenter College of Design · GPA 3.8 이상">
+          ArtCenter College of Design · GPA 3.8 or higher
+        </div>
+      </div>
+      <div class="exp-year">2024</div>
+    </div>
+    <div class="exp-row">
+      <div>
+        <div class="exp-title">ArtCenter Student Gallery</div>
+        <div class="exp-company">Gonzo Girl (Title sequence)</div>
+      </div>
+      <div class="exp-year">2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-bar reveal">
+  <h2 class="contact-title" data-en="Let's work together." data-kr="함께 작업해요.">Let's work together.</h2>
+  <div class="contact-links">
+    <a href="mailto:baekho1229@gmail.com" class="contact-link">Email</a>
+    <a href="https://www.linkedin.com/in/jin-ho-baek-318387344" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="https://www.instagram.com" target="_blank" class="contact-link">Instagram</a>
+    <a href="https://freight.cargo.site/m/X2679074954112259487775377015020/resume_jinhobaek.pdf" target="_blank" class="contact-link" data-en="Resume" data-kr="이력서">Resume</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Jinho Baek</p>
+  <p>Illustrator & Motion Designer · Los Angeles, CA</p>
+</footer>
+
+<script>
+// ── CURSOR ──
+const dot = document.createElement('div');
+dot.className = 'cursor-dot';
+const ring = document.createElement('div');
+ring.className = 'cursor-ring';
+document.body.appendChild(dot);
+document.body.appendChild(ring);
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  dot.style.left=mx+'px'; dot.style.top=my+'px';
+});
+(function loop(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', ()=>{ ring.style.width='56px'; ring.style.height='56px'; ring.style.background='rgba(0,0,0,0.06)'; });
+  el.addEventListener('mouseleave', ()=>{ ring.style.width='36px'; ring.style.height='36px'; ring.style.background='transparent'; });
+});
+
+// ── MAGNETIC (contact links) ──
+function initMagnetic(el, s=0.35) {
+  el.addEventListener('mouseenter', ()=>el.style.transition='transform .2s cubic-bezier(.25,.46,.45,.94)');
+  el.addEventListener('mousemove', e=>{
+    const r=el.getBoundingClientRect();
+    el.style.transform=`translate(${(e.clientX-(r.left+r.width/2))*s}px,${(e.clientY-(r.top+r.height/2))*s}px)`;
+  });
+  el.addEventListener('mouseleave', ()=>{ el.style.transition='transform .5s cubic-bezier(.25,.46,.45,.94)'; el.style.transform='translate(0,0)'; });
+}
+document.querySelectorAll('.contact-link').forEach(el => initMagnetic(el, 0.3));
+
+// ── REVEAL ──
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); revealObserver.unobserve(e.target); } });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+// ── HAMBURGER ──
+document.getElementById('hamburger').addEventListener('click', ()=>{
+  document.getElementById('mobile-menu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+});
+
+// ── LANG ──
+document.querySelectorAll('.lang-toggle span').forEach((span,i)=>{
+  span.addEventListener('click', ()=>{
+    const l = i===0 ? 'en' : 'kr';
+    document.querySelectorAll('.lang-toggle span').forEach((s,j)=>s.classList.toggle('active',i===j));
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      if(el.dataset[l]) el.textContent = el.dataset[l];
+    });
+  });
+});
+</script>
+</body>
+</html>
