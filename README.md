@@ -1,2 +1,0 @@
-# jinhobaek
-portfolio website

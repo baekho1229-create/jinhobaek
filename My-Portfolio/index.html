@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jinho Baek — Illustrator & Motion Designer</title>
+<link rel="stylesheet" href="https://use.typekit.net/mmq0fwm.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#FFFFFF;--surface:#F2F2F2;--text:#000000;--muted:#888;--border:#E0E0E0;
+  --pad:2.5rem;
+}
+@media(max-width:768px){:root{--pad:1.25rem;}}
+body{font-family:'sofia-pro',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:15px;cursor:none;}
+h1,h2,.nav-logo,.section-label,.work-title{font-family:'azo-sans-web',sans-serif;}
+a,button{cursor:none;}
+a{color:inherit;text-decoration:none;}
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+  body, a, button { cursor: auto !important; }
+}
+
+/* CURSOR */
+.cursor-dot{position:fixed;width:8px;height:8px;background:var(--text);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity .2s ease;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--text);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s ease,height .25s ease,background .25s ease,border-color .25s ease;display:flex;align-items:center;justify-content:center;}
+.cursor-ring.expanded{width:80px;height:80px;background:var(--text);border-color:var(--text);}
+.cursor-ring.expanded .cursor-label{opacity:1;}
+.cursor-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;color:var(--bg);text-transform:uppercase;opacity:0;transition:opacity .2s ease;font-family:'azo-sans-web',sans-serif;position:absolute;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:56px;}
+.nav-logo{font-weight:700;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.78rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;transition:color .15s;}
+.nav-links a:hover{color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:0.75rem;}
+.lang-toggle{display:flex;gap:2px;font-size:0.75rem;}
+.lang-toggle span{padding:3px 8px;border-radius:3px;cursor:none;color:var(--muted);}
+.lang-toggle span.active{background:var(--text);color:var(--bg);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:none;padding:4px;}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--text);transition:all .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--bg);z-index:99;padding:2rem var(--pad);flex-direction:column;border-top:1px solid var(--border);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{display:block;padding:1.1rem 0;font-size:1.2rem;font-family:'azo-sans-web',sans-serif;font-weight:700;border-bottom:1px solid var(--border);}
+.mobile-contacts{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;}
+.mobile-contacts a{font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}}
+
+/* HERO */
+.hero{padding:5rem var(--pad) 4rem;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;}
+.hero-name{font-size:clamp(3rem,7vw,6rem);font-weight:800;letter-spacing:-0.04em;line-height:0.95;margin-bottom:2rem;}
+.hero-role{font-size:0.9rem;color:var(--muted);line-height:1.7;max-width:380px;}
+.hero-avail{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;margin-top:0.5rem;}
+.dot{width:7px;height:7px;border-radius:50%;background:#3ecf4c;flex-shrink:0;}
+.hero-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:0.75rem;}
+.hero-contacts{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;}
+.hero-contact-link{font-size:0.82rem;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;transition:color .15s;}
+.hero-contact-link:hover{color:var(--text);}
+.btn-resume{display:inline-block;padding:0.6rem 1.5rem;border:1px solid var(--text);border-radius:100px;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase;transition:all .15s;margin-top:0.5rem;}
+.btn-resume:hover{background:var(--text);color:var(--bg);}
+@media(max-width:768px){.hero{grid-template-columns:1fr;gap:2.5rem;padding:3rem var(--pad);}.hero-right{align-items:flex-start;}.hero-contacts{align-items:flex-start;}}
+
+/* WORKS */
+.works{border-bottom:1px solid var(--border);}
+.works-header{padding:1.5rem var(--pad);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.section-label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.filter-tabs{display:flex;gap:0.4rem;}
+.filter-tab{padding:0.3rem 0.85rem;border:1px solid var(--border);border-radius:100px;font-size:0.75rem;cursor:none;background:transparent;color:var(--muted);transition:all .15s;font-family:'sofia-pro',sans-serif;}
+.filter-tab.active,.filter-tab:hover{background:var(--text);color:var(--bg);border-color:var(--text);}
+
+/* WORK CARD */
+.work-card{display:block;border-bottom:1px solid var(--border);cursor:none;text-decoration:none;color:var(--text);position:relative;overflow:hidden;transform-style:preserve-3d;will-change:transform;}
+.work-card:last-child{border-bottom:none;}
+.work-thumb{width:100%;aspect-ratio:16/6;overflow:hidden;background:var(--surface);position:relative;}
+.work-img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:opacity .4s ease;}
+.work-video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .4s ease;}
+.work-card:hover .work-img{opacity:0;}
+.work-card:hover .work-video{opacity:1;}
+.work-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface);}
+.work-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem 2.5rem;}
+.work-cat{font-size:0.72rem;color:rgba(255,255,255,0.7);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;transition:transform .3s ease;}
+.work-title{font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;color:#fff;margin-bottom:0.5rem;transition:transform .3s ease;}
+.work-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;}
+.work-year{font-size:0.78rem;color:rgba(255,255,255,0.6);}
+.work-arrow{font-size:1.1rem;color:#fff;opacity:0;transform:translate(-6px,6px);transition:transform .3s ease,opacity .3s ease;}
+.work-card:hover .work-arrow{opacity:1;transform:translate(0,0);}
+.work-card:hover .work-cat{transform:translateY(-3px);}
+.work-card:hover .work-title{transform:translateY(-3px);}
+@media(max-width:768px){.work-thumb{aspect-ratio:4/3;}.work-overlay{padding:1.25rem var(--pad);}.work-arrow{opacity:1;transform:translate(0,0);}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+footer{padding:1.2rem var(--pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
+footer p{font-size:0.75rem;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Jinho Baek</div>
+  <ul class="nav-links">
+    <li><a id="nav-works">Works</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <span class="active" data-lang="en">EN</span>
+      <span data-lang="kr">KR</span>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a id="mobile-nav-works">Works</a>
+  <a href="about.html">About</a>
+  <div class="mobile-contacts">
+    <a href="mailto:baekho1229@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/jin-ho-baek-318387344" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+  </div>
+</div>
+
+<section class="hero reveal">
+  <div>
+    <h1 class="hero-name">Jinho<br>Baek</h1>
+    <p class="hero-role"
+      data-en="I am an illustrator and motion designer. My purpose is clear: to create design that delights, connects and leaves people feeling happy."
+      data-kr="저는 일러스트레이터 & 모션 디자이너입니다. 기쁨을 주고, 연결을 만들고, 행복한 감정을 남기는 디자인을 추구합니다.">
+      I am an illustrator and motion designer. My purpose is clear: to create design that delights, connects and leaves people feeling happy.
+    </p>
+    <div class="hero-avail">
+      <div class="dot"></div>
+      <span data-en="Available for freelance" data-kr="프리랜서 가능">Available for freelance</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-contacts">
+      <a href="mailto:baekho1229@gmail.com" class="hero-contact-link">baekho1229@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jin-ho-baek-318387344" target="_blank" class="hero-contact-link">LinkedIn</a>
+      <a href="https://www.instagram.com" target="_blank" class="hero-contact-link">Instagram</a>
+      <span class="hero-contact-link" style="color:var(--text);" data-en="Los Angeles, CA" data-kr="로스앤젤레스, CA">Los Angeles, CA</span>
+    </div>
+    <a href="https://freight.cargo.site/m/X2679074954112259487775377015020/resume_jinhobaek.pdf" target="_blank" class="btn-resume" data-en="Download Resume" data-kr="이력서 다운로드">Download Resume</a>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="works-header reveal">
+    <span class="section-label" data-en="Selected Works" data-kr="주요 작업">Selected Works</span>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all" data-en="All" data-kr="전체">All</button>
+      <button class="filter-tab" data-filter="3d">3D</button>
+      <button class="filter-tab" data-filter="motion" data-en="Motion" data-kr="모션">Motion</button>
+      <button class="filter-tab" data-filter="illustration" data-en="Illustration" data-kr="일러스트">Illustration</button>
+    </div>
+  </div>
+  <div id="works-list"></div>
+</section>
+
+<footer>
+  <p>© 2025 Jinho Baek</p>
+  <p>Illustrator & Motion Designer · Los Angeles, CA</p>
+</footer>
+
+<script type="module">
+import { projects } from './data.js';
+
+// ── RENDER ──
+function renderWorks(filter) {
+  const list = document.getElementById('works-list');
+  list.innerHTML = '';
+  projects.filter(p => filter === 'all' || p.tags.includes(filter)).forEach(p => {
+    const card = document.createElement('a');
+    card.href = `detail.html?id=${p.id}`;
+    card.className = 'work-card reveal';
+    const img = p.thumb ? `<img src="${p.thumb}" alt="${p.title}" class="work-img"/>` : '';
+    const vid = p.video ? `<video class="work-video" src="${p.video}" loop muted playsinline preload="none"></video>` : '';
+    card.innerHTML = `
+      <div class="work-thumb">
+        ${img}${vid}
+        <div class="work-overlay">
+          <div class="work-cat">${p.category}</div>
+          <div class="work-title">${p.title}</div>
+          <div class="work-bottom">
+            <span class="work-year">${p.year}</span>
+            <span class="work-arrow">↗</span>
+          </div>
+        </div>
+      </div>`;
+    list.appendChild(card);
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.work-card').forEach(card => {
+      revealObserver.observe(card);
+      initTilt(card);
+    });
+    document.querySelectorAll('.filter-tab').forEach(el => initMagnetic(el, 0.4));
+  }, 50);
+}
+
+// ── CURSOR ──
+const dot = document.createElement('div');
+dot.className = 'cursor-dot';
+const ring = document.createElement('div');
+ring.className = 'cursor-ring';
+ring.innerHTML = '<span class="cursor-label">VIEW</span>';
+document.body.appendChild(dot);
+document.body.appendChild(ring);
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  dot.style.left=mx+'px'; dot.style.top=my+'px';
+});
+(function loop(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.style.transform='translate(-50%,-50%) scale(0.7)');
+  el.addEventListener('mouseleave', () => ring.style.transform='translate(-50%,-50%) scale(1)');
+});
+
+// ── TILT + VIDEO ──
+function initTilt(card) {
+  let raf=null;
+  const video=card.querySelector('.work-video');
+  card.addEventListener('mouseenter', () => {
+    card.style.transition='transform .15s ease,box-shadow .15s ease';
+    if(video) video.play().catch(()=>{});
+    ring.classList.add('expanded'); dot.style.opacity='0';
+  });
+  card.addEventListener('mousemove', e => {
+    const r=card.getBoundingClientRect();
+    const x=(e.clientY-r.top)/r.height-0.5, y=(e.clientX-r.left)/r.width-0.5;
+    if(!raf) raf=requestAnimationFrame(()=>{
+      card.style.transform=`perspective(1000px) rotateX(${-x*4}deg) rotateY(${y*4}deg) scale(1.01)`;
+      card.style.boxShadow=`${-y*14}px ${-x*14}px 32px rgba(0,0,0,0.1)`;
+      raf=null;
+    });
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transition='transform .4s ease,box-shadow .4s ease';
+    card.style.transform=''; card.style.boxShadow='';
+    if(raf){cancelAnimationFrame(raf);raf=null;}
+    if(video){video.pause();video.currentTime=0;}
+    ring.classList.remove('expanded'); dot.style.opacity='1';
+  });
+}
+
+// ── MAGNETIC ──
+function initMagnetic(el, s=0.35) {
+  el.addEventListener('mouseenter', ()=>el.style.transition='transform .2s cubic-bezier(.25,.46,.45,.94)');
+  el.addEventListener('mousemove', e=>{
+    const r=el.getBoundingClientRect();
+    el.style.transform=`translate(${(e.clientX-(r.left+r.width/2))*s}px,${(e.clientY-(r.top+r.height/2))*s}px)`;
+  });
+  el.addEventListener('mouseleave', ()=>{ el.style.transition='transform .5s cubic-bezier(.25,.46,.45,.94)'; el.style.transform='translate(0,0)'; });
+}
+document.querySelectorAll('.btn-resume').forEach(el=>initMagnetic(el,0.4));
+
+// ── REVEAL ──
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); revealObserver.unobserve(e.target); } });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+// ── FILTER ──
+document.querySelectorAll('.filter-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    renderWorks(tab.dataset.filter);
+  });
+});
+
+// ── NAV ──
+document.getElementById('nav-works').addEventListener('click',()=>document.getElementById('works')?.scrollIntoView({behavior:'smooth'}));
+document.getElementById('hamburger').addEventListener('click',()=>{
+  document.getElementById('mobile-menu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+});
+document.getElementById('mobile-nav-works').addEventListener('click',()=>{
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  setTimeout(()=>document.getElementById('works')?.scrollIntoView({behavior:'smooth'}),200);
+});
+
+// ── LANG ──
+document.querySelectorAll('.lang-toggle span').forEach((span,i)=>{
+  span.addEventListener('click',()=>{
+    const l=i===0?'en':'kr';
+    document.querySelectorAll('.lang-toggle span').forEach((s,j)=>s.classList.toggle('active',i===j));
+    document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[l]||el.dataset.en);
+  });
+});
+
+renderWorks('all');
+</script>
+</body>
+</html>
