@@ -4,18 +4,17 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Jinho Baek — Illustrator & Motion Designer</title>
-<link rel="stylesheet" href="https://use.typekit.net/mmq0fwm.css">
+<style>@import url("https://use.typekit.net/mmq0fwm.css");</style>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --bg:#FFFFFF;--surface:#F2F2F2;--text:#000000;--muted:#888;--border:#E0E0E0;
-  --pad:2.5rem;
-}
+:root{--bg:#FFFFFF;--surface:#F2F2F2;--text:#000000;--muted:#888;--border:#E0E0E0;--pad:2.5rem;}
 @media(max-width:768px){:root{--pad:1.25rem;}}
 body{font-family:'sofia-pro',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:15px;cursor:none;}
 h1,h2,.nav-logo,.section-label,.work-title{font-family:'azo-sans-web',sans-serif;}
 a,button{cursor:none;}
 a{color:inherit;text-decoration:none;}
+
+/* 모바일 터치스크린 환경에서 커스텀 커서 비활성화 (충돌 방지) */
 @media (hover: none) and (pointer: coarse) {
   .cursor-dot, .cursor-ring { display: none !important; }
   body, a, button { cursor: auto !important; }
@@ -28,7 +27,7 @@ a{color:inherit;text-decoration:none;}
 .cursor-ring.expanded .cursor-label{opacity:1;}
 .cursor-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;color:var(--bg);text-transform:uppercase;opacity:0;transition:opacity .2s ease;font-family:'azo-sans-web',sans-serif;position:absolute;}
 
-/* NAV */
+/* NAV & MENU */
 nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:56px;}
 .nav-logo{font-weight:700;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;}
 .nav-links{display:flex;gap:2rem;list-style:none;}
@@ -45,7 +44,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 .mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--bg);z-index:99;padding:2rem var(--pad);flex-direction:column;border-top:1px solid var(--border);}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{display:block;padding:1.1rem 0;font-size:1.2rem;font-family:'azo-sans-web',sans-serif;font-weight:700;border-bottom:1px solid var(--border);}
+.mobile-menu a{display:block;padding:1.1rem 0;font-size:1.2rem;font-weight:700;border-bottom:1px solid var(--border);}
 .mobile-contacts{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;}
 .mobile-contacts a{font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;}
 @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}}
@@ -58,7 +57,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .dot{width:7px;height:7px;border-radius:50%;background:#3ecf4c;flex-shrink:0;}
 .hero-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:0.75rem;}
 .hero-contacts{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;}
-.hero-contact-link{font-size:0.82rem;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;transition:color .15s;}
+.hero-contact-link{font-size:0.82rem;color:var(--muted);text-transform:uppercase;transition:color .15s;}
 .hero-contact-link:hover{color:var(--text);}
 .btn-resume{display:inline-block;padding:0.6rem 1.5rem;border:1px solid var(--text);border-radius:100px;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase;transition:all .15s;margin-top:0.5rem;}
 .btn-resume:hover{background:var(--text);color:var(--bg);}
@@ -69,7 +68,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .works-header{padding:1.5rem var(--pad);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
 .section-label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
 .filter-tabs{display:flex;gap:0.4rem;}
-.filter-tab{padding:0.3rem 0.85rem;border:1px solid var(--border);border-radius:100px;font-size:0.75rem;cursor:none;background:transparent;color:var(--muted);transition:all .15s;font-family:'sofia-pro',sans-serif;}
+.filter-tab{padding:0.3rem 0.85rem;border:1px solid var(--border);border-radius:100px;font-size:0.75rem;cursor:none;background:transparent;color:var(--muted);transition:all .15s;}
 .filter-tab.active,.filter-tab:hover{background:var(--text);color:var(--bg);border-color:var(--text);}
 
 /* WORK CARD */
@@ -80,7 +79,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px sol
 .work-video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .4s ease;}
 .work-card:hover .work-img{opacity:0;}
 .work-card:hover .work-video{opacity:1;}
-.work-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface);}
 .work-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem 2.5rem;}
 .work-cat{font-size:0.72rem;color:rgba(255,255,255,0.7);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;transition:transform .3s ease;}
 .work-title{font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;color:#fff;margin-bottom:0.5rem;transition:transform .3s ease;}
@@ -106,7 +104,7 @@ footer p{font-size:0.75rem;color:var(--muted);}
   <div class="nav-logo">Jinho Baek</div>
   <ul class="nav-links">
     <li><a id="nav-works">Works</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="#">About</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -121,7 +119,7 @@ footer p{font-size:0.75rem;color:var(--muted);}
 
 <div class="mobile-menu" id="mobile-menu">
   <a id="mobile-nav-works">Works</a>
-  <a href="about.html">About</a>
+  <a href="#">About</a>
   <div class="mobile-contacts">
     <a href="mailto:baekho1229@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/jin-ho-baek-318387344" target="_blank">LinkedIn</a>
@@ -132,9 +130,7 @@ footer p{font-size:0.75rem;color:var(--muted);}
 <section class="hero reveal">
   <div>
     <h1 class="hero-name">Jinho<br>Baek</h1>
-    <p class="hero-role"
-      data-en="I am an illustrator and motion designer. My purpose is clear: to create design that delights, connects and leaves people feeling happy."
-      data-kr="저는 일러스트레이터 & 모션 디자이너입니다. 기쁨을 주고, 연결을 만들고, 행복한 감정을 남기는 디자인을 추구합니다.">
+    <p class="hero-role" data-en="I am an illustrator and motion designer. My purpose is clear: to create design that delights, connects and leaves people feeling happy." data-kr="저는 일러스트레이터 & 모션 디자이너입니다. 기쁨을 주고, 연결을 만들고, 행복한 감정을 남기는 디자인을 추구합니다.">
       I am an illustrator and motion designer. My purpose is clear: to create design that delights, connects and leaves people feeling happy.
     </p>
     <div class="hero-avail">
@@ -174,7 +170,18 @@ footer p{font-size:0.75rem;color:var(--muted);}
 <script type="module">
 import { projects } from './data.js';
 
-// ── RENDER ──
+// ── REVEAL OBSERVER ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => { 
+    if(e.isIntersecting){ 
+      setTimeout(() => e.target.classList.add('visible'), i * 80); 
+      revealObserver.unobserve(e.target); 
+    } 
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── RENDER WORKS ──
 function renderWorks(filter) {
   const list = document.getElementById('works-list');
   list.innerHTML = '';
@@ -182,7 +189,8 @@ function renderWorks(filter) {
     const card = document.createElement('a');
     card.href = `detail.html?id=${p.id}`;
     card.className = 'work-card reveal';
-    const img = p.thumb ? `<img src="${p.thumb}" alt="${p.title}" class="work-img"/>` : '';
+    // loading="lazy" 추가 완료
+    const img = p.thumb ? `<img src="${p.thumb}" alt="${p.title}" class="work-img" loading="lazy"/>` : '';
     const vid = p.video ? `<video class="work-video" src="${p.video}" loop muted playsinline preload="none"></video>` : '';
     card.innerHTML = `
       <div class="work-thumb">
@@ -198,38 +206,58 @@ function renderWorks(filter) {
       </div>`;
     list.appendChild(card);
   });
+
   setTimeout(() => {
     document.querySelectorAll('.work-card').forEach(card => {
       revealObserver.observe(card);
       initTilt(card);
     });
-    document.querySelectorAll('.filter-tab').forEach(el => initMagnetic(el, 0.4));
   }, 50);
 }
 
-// ── CURSOR ──
-const dot = document.createElement('div');
-dot.className = 'cursor-dot';
-const ring = document.createElement('div');
-ring.className = 'cursor-ring';
-ring.innerHTML = '<span class="cursor-label">VIEW</span>';
-document.body.appendChild(dot);
-document.body.appendChild(ring);
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => {
-  mx=e.clientX; my=e.clientY;
-  dot.style.left=mx+'px'; dot.style.top=my+'px';
+// ── EVENT LISTENERS (모듈 환경 필수) ──
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderWorks(tab.dataset.filter);
+  });
 });
+
+document.getElementById('nav-works').addEventListener('click', () => document.getElementById('works')?.scrollIntoView({behavior:'smooth'}));
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+});
+document.getElementById('mobile-nav-works').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  setTimeout(() => document.getElementById('works')?.scrollIntoView({behavior:'smooth'}), 200);
+});
+
+document.querySelectorAll('.lang-toggle span').forEach((span, i) => {
+  span.addEventListener('click', () => {
+    const l = i === 0 ? 'en' : 'kr';
+    document.querySelectorAll('.lang-toggle span').forEach((s, j) => s.classList.toggle('active', i === j));
+    document.querySelectorAll('[data-en]').forEach(el => el.textContent = el.dataset[l] || el.dataset.en);
+  });
+});
+
+// ── CURSOR & INTERACTIONS ──
+const dot = document.createElement('div'); dot.className = 'cursor-dot';
+const ring = document.createElement('div'); ring.className = 'cursor-ring';
+ring.innerHTML = '<span class="cursor-label">VIEW</span>';
+document.body.appendChild(dot); document.body.appendChild(ring);
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
 (function loop(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
 document.querySelectorAll('a,button').forEach(el => {
   el.addEventListener('mouseenter', () => ring.style.transform='translate(-50%,-50%) scale(0.7)');
   el.addEventListener('mouseleave', () => ring.style.transform='translate(-50%,-50%) scale(1)');
 });
 
-// ── TILT + VIDEO ──
 function initTilt(card) {
-  let raf=null;
-  const video=card.querySelector('.work-video');
+  let raf=null; const video=card.querySelector('.work-video');
   card.addEventListener('mouseenter', () => {
     card.style.transition='transform .15s ease,box-shadow .15s ease';
     if(video) video.play().catch(()=>{});
@@ -253,7 +281,6 @@ function initTilt(card) {
   });
 }
 
-// ── MAGNETIC ──
 function initMagnetic(el, s=0.35) {
   el.addEventListener('mouseenter', ()=>el.style.transition='transform .2s cubic-bezier(.25,.46,.45,.94)');
   el.addEventListener('mousemove', e=>{
@@ -264,42 +291,7 @@ function initMagnetic(el, s=0.35) {
 }
 document.querySelectorAll('.btn-resume').forEach(el=>initMagnetic(el,0.4));
 
-// ── REVEAL ──
-const revealObserver = new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); revealObserver.unobserve(e.target); } });
-},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
-
-// ── FILTER ──
-document.querySelectorAll('.filter-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    renderWorks(tab.dataset.filter);
-  });
-});
-
-// ── NAV ──
-document.getElementById('nav-works').addEventListener('click',()=>document.getElementById('works')?.scrollIntoView({behavior:'smooth'}));
-document.getElementById('hamburger').addEventListener('click',()=>{
-  document.getElementById('mobile-menu').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
-});
-document.getElementById('mobile-nav-works').addEventListener('click',()=>{
-  document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-  setTimeout(()=>document.getElementById('works')?.scrollIntoView({behavior:'smooth'}),200);
-});
-
-// ── LANG ──
-document.querySelectorAll('.lang-toggle span').forEach((span,i)=>{
-  span.addEventListener('click',()=>{
-    const l=i===0?'en':'kr';
-    document.querySelectorAll('.lang-toggle span').forEach((s,j)=>s.classList.toggle('active',i===j));
-    document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[l]||el.dataset.en);
-  });
-});
-
+// 초기 렌더링 실행
 renderWorks('all');
 </script>
 </body>
