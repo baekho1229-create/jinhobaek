@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Project — Jinho Baek</title>
+<style>@import url("https://use.typekit.net/mmq0fwm.css");</style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#FFFFFF;--surface:#F2F2F2;--text:#000000;--muted:#888;--border:#E0E0E0;--pad:2.5rem;}
+@media(max-width:768px){:root{--pad:1.25rem;}}
+body{font-family:'sofia-pro',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:15px;cursor:none;}
+h1,h2,.nav-logo,.proj-title,.section-label{font-family:'azo-sans-web',sans-serif;}
+a,button{cursor:none;}
+a{color:inherit;text-decoration:none;}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+  body, a, button { cursor: auto !important; }
+}
+
+/* CURSOR */
+.cursor-dot{position:fixed;width:8px;height:8px;background:var(--text);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity .2s ease;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--text);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s ease,height .25s ease,background .25s ease,border-color .25s ease;display:flex;align-items:center;justify-content:center;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:56px;}
+.nav-logo{font-weight:700;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;}
+.back-btn{font-size:0.78rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;transition:color .15s;}
+.back-btn:hover{color:var(--text);}
+
+/* HERO IMAGE */
+.proj-hero{width:100%;aspect-ratio:16/7;overflow:hidden;background:var(--surface);position:relative;}
+.proj-hero img,.proj-hero video{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-hero-placeholder{width:100%;height:100%;background:var(--surface);}
+
+/* HEADER */
+.proj-header{padding:3rem var(--pad) 2.5rem;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+@media(max-width:768px){.proj-header{grid-template-columns:1fr;gap:2rem;padding:2rem var(--pad);}}
+.proj-cat{font-size:0.75rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;}
+.proj-title{font-size:clamp(2rem,5vw,3.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.05;}
+.proj-meta{display:flex;flex-direction:column;gap:1.2rem;padding-top:0.5rem;}
+.proj-meta-label{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;}
+.proj-meta-val{font-size:0.9rem;font-weight:600;}
+
+/* BODY */
+.proj-body{padding:3rem var(--pad);max-width:760px;}
+.proj-section-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem;margin-top:2rem;}
+.proj-section-label:first-child{margin-top:0;}
+.proj-body p{font-size:0.95rem;color:var(--muted);line-height:1.85;}
+.proj-tools{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;}
+.proj-tool{padding:0.28rem 0.8rem;background:var(--surface);border-radius:100px;font-size:0.78rem;border:1px solid var(--border);}
+
+/* GALLERY */
+.proj-gallery-container{margin:4rem 0; border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.gallery-row{display:flex;gap:1px;background:var(--border);}
+.gallery-item{overflow:hidden;background:var(--surface);flex:1;}
+.gallery-item.full{flex:0 0 100%;aspect-ratio:16/9;}
+.gallery-item.half{aspect-ratio:4/3;}
+.gallery-item img, .gallery-item video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94);}
+.gallery-item:hover img, .gallery-item:hover video{transform:scale(1.03);}
+@media(max-width:480px){.gallery-row{flex-direction:column;}.gallery-item.half{aspect-ratio:4/3;flex:0 0 auto;}}
+
+/* PREV / NEXT */
+.proj-nav{padding:2rem var(--pad);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.proj-nav-item{display:flex;flex-direction:column;gap:0.4rem;}
+.proj-nav-item.next{align-items:flex-end;text-align:right;}
+.proj-nav-label{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.proj-nav-title{font-size:0.95rem;font-weight:700;font-family:'azo-sans-web',sans-serif;transition:opacity .15s;}
+.proj-nav-title:hover{opacity:0.5;}
+
+/* NOT FOUND */
+.not-found{padding:8rem var(--pad);text-align:center;}
+.not-found h2{font-size:2rem;margin-bottom:1rem;}
+.not-found p{color:var(--muted);margin-bottom:2rem;}
+.btn-back{display:inline-block;padding:0.6rem 1.5rem;border:1px solid var(--text);border-radius:100px;font-size:0.82rem;text-transform:uppercase;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+footer{padding:1.2rem var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+footer p{font-size:0.75rem;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Jinho Baek</a>
+  <div class="nav-right">
+    <a class="back-btn" href="index.html">← Back to Works</a>
+  </div>
+</nav>
+
+<div id="proj-content"></div>
+
+<footer>
+  <p>© 2025 Jinho Baek</p>
+  <p>Illustrator & Motion Designer · Los Angeles, CA</p>
+</footer>
+
+<script type="module">
+import { projects } from './data.js';
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+// ID가 유효한지 검사, 없으면 404
+const idx = projects.findIndex(p => p.id === id);
+const p = idx !== -1 ? projects[idx] : null;
+
+const content = document.getElementById('proj-content');
+
+// ── 갤러리 렌더링 함수 ──
+function renderGallery(gallery) {
+  if(!gallery || gallery.length === 0) return '';
+  const rows = [];
+  let i = 0;
+  while(i < gallery.length) {
+    const item = gallery[i];
+    if(item.layout === 'full') {
+      rows.push([item]);
+      i++;
+    } else {
+      const next = gallery[i+1];
+      if(next && next.layout === 'half') {
+        rows.push([item, next]);
+        i += 2;
+      } else {
+        rows.push([item]);
+        i++;
+      }
+    }
+  }
+  const rowsHtml = rows.map(row => {
+    const itemsHtml = row.map(item => {
+      const media = item.type === 'video'
+        ? `<video src="${item.url}" autoplay loop muted playsinline></video>`
+        : `<img src="${item.url}" alt="" loading="lazy"/>`;
+      return `<div class="gallery-item ${item.layout}">${media}</div>`;
+    }).join('');
+    return `<div class="gallery-row">${itemsHtml}</div>`;
+  }).join('');
+  return `<div class="proj-gallery-container reveal">${rowsHtml}</div>`;
+}
+
+if(!p) {
+  content.innerHTML = `
+    <div class="not-found">
+      <h2>Project not found</h2>
+      <p>The project you're looking for doesn't exist.</p>
+      <a href="index.html" class="btn-back">Back to Works</a>
+    </div>`;
+} else {
+  document.title = `${p.title} — Jinho Baek`;
+  const prev = projects[idx - 1];
+  const next = projects[idx + 1];
+
+  const heroMedia = p.video
+    ? `<video src="${p.video}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
+    : p.thumb
+    ? `<img src="${p.thumb}" alt="${p.title}"/>`
+    : `<div class="proj-hero-placeholder"></div>`;
+
+  content.innerHTML = `
+    <div class="proj-hero">${heroMedia}</div>
+    <div class="proj-header reveal">
+      <div>
+        <div class="proj-cat">${p.category}</div>
+        <h1 class="proj-title">${p.title}</h1>
+      </div>
+      <div class="proj-meta">
+        <div class="proj-meta-item">
+          <div class="proj-meta-label">Year</div>
+          <div class="proj-meta-val">${p.year}</div>
+        </div>
+        <div class="proj-meta-item">
+          <div class="proj-meta-label">Client</div>
+          <div class="proj-meta-val">${p.client}</div>
+        </div>
+        <div class="proj-meta-item">
+          <div class="proj-meta-label">Role</div>
+          <div class="proj-meta-val">${p.role}</div>
+        </div>
+      </div>
+    </div>
+    <div class="proj-body reveal">
+      <div class="proj-section-label">About the Project</div>
+      <p>${p.body}</p>
+      <div class="proj-section-label">Tools Used</div>
+      <div class="proj-tools">${p.tools.map(t=>`<span class="proj-tool">${t}</span>`).join('')}</div>
+    </div>
+    
+    ${renderGallery(p.gallery)}
+    
+    <div class="proj-nav reveal">
+      <div class="proj-nav-item prev">
+        ${prev ? `<span class="proj-nav-label">Previous</span><a class="proj-nav-title" href="detail.html?id=${prev.id}">← ${prev.title}</a>` : ''}
+      </div>
+      <div class="proj-nav-item next">
+        ${next ? `<span class="proj-nav-label">Next</span><a class="proj-nav-title" href="detail.html?id=${next.id}">${next.title} →</a>` : ''}
+      </div>
+    </div>`;
+
+  // Reveal Animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if(e.isIntersecting){
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+        observer.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+// ── CURSOR ──
+const dot = document.createElement('div'); dot.className = 'cursor-dot';
+const ring = document.createElement('div'); ring.className = 'cursor-ring';
+document.body.appendChild(dot); document.body.appendChild(ring);
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+(function loop(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.style.transform='translate(-50%,-50%) scale(0.7)');
+  el.addEventListener('mouseleave', () => ring.style.transform='translate(-50%,-50%) scale(1)');
+});
+</script>
+</body>
+</html>
