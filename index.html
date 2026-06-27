@@ -85,12 +85,10 @@
     .slideshow { position: relative; width: 100%; overflow: hidden; margin: 0.75rem 0; }
     .slideshow-inner { display: flex; transition: transform 0.35s ease; }
     .slide {
-      min-width: 100%; aspect-ratio: 16/9;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.08);
-      overflow: hidden;
-    }
-    .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  min-width: 100%;
+  background: rgba(255,255,255,0.08);
+}
+    .slide img { width: 100%; height: auto; display: block; }
     .slide-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
       display: flex; justify-content: space-between;
