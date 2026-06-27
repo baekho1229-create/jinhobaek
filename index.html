@@ -3,80 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cargo Demo Site</title>
-
-  <!-- ============================================================
-       CARGO TEMPLATE — 수정 가이드
-       ============================================================
-       이 파일은 Cargo 사이트 템플릿을 표준 HTML/CSS로 재현한 것입니다.
-       각 섹션에 "/* CARGO → */" 주석으로 Cargo에 붙여넣을 위치를 표시합니다.
-
-       파일 구조:
-         [MAIN CSS]     → Cargo > Site Styles (전역)
-         [NAV]          → navcss.txt + navhtml.txt
-         [HEAD-ST]      → headstcss.txt + headsthtml.txt
-         [HEAD]         → headcss.txt + headhtml.txt
-         [PRJ]          → prjcss.txt + PRJHTML.txt
-         [INFO]         → infocss.txt + infohtml.txt
-         [FOOT-SQ]      → footsqcss.txt + footsqhtml.txt
-         [FOOT]         → footcss.txt + foothtml.txt
-         [EXPRJ]        → exprjcss.txt + exprjhtml.txt (overlay)
-       ============================================================ -->
-
+  <title>Jinho Baek</title>
   <style>
-    /* ============================================================
-       [MAIN CSS] → Cargo > Site Styles
-       ============================================================ */
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
     :root {
-      --swatch-1: rgba(255, 255, 255, 0.85);
-      --swatch-2: rgba(255, 255, 255, 0.75);
-      --swatch-3: rgba(255, 255, 255, 0.6);
-      --swatch-4: rgba(255, 255, 255, 0.4);
-      --swatch-5: rgba(255, 255, 255, 0.25);
-      --swatch-6: rgba(255, 255, 255, 0.15);
       --bg: #147314;
       --font-main: 'Space Grotesk', sans-serif;
       --font-mono: 'Space Mono', monospace;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { font-size: 16px; }
 
     body {
       background-color: var(--bg);
       font-family: var(--font-main);
-      color: var(--swatch-2);
+      color: rgba(255,255,255,0.75);
       min-height: 100vh;
     }
 
-    a { color: var(--swatch-2); text-decoration: none; }
+    a { color: rgba(255,255,255,0.75); text-decoration: none; }
     a:hover { opacity: 0.7; }
-    a:active { opacity: 0.7; }
 
-    hr {
-      background: var(--swatch-1);
-      border: 0;
-      height: 1px;
-      display: block;
-      margin-top: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    /* bodycopy */
-    .bodycopy {
-      font-size: 1.1rem;
-      font-weight: 650;
-      color: var(--swatch-2);
-      font-family: var(--font-main);
-      line-height: 1.15;
-      letter-spacing: 0em;
-    }
+    hr { background: rgba(255,255,255,0.85); border: 0; height: 1px; display: block; margin: 0.5rem 0 0.75rem; }
 
     h1 {
-      font-family: var(--font-main);
       font-weight: 800;
       font-size: clamp(3.5rem, 10vw, 4.5rem);
       line-height: 0.775;
@@ -85,7 +37,6 @@
     }
 
     h2 {
-      font-family: var(--font-main);
       font-weight: 650;
       color: rgba(255,255,255,0.8);
       font-size: 1.65rem;
@@ -95,745 +46,452 @@
 
     .caption {
       font-size: 0.7rem;
-      font-weight: 650;
       color: rgba(255,255,255,0.5);
       font-family: var(--font-mono);
       line-height: 1.15;
     }
 
-    /* column-set 구현 */
-    .col-set {
-      display: grid;
-      gap: 0.5rem;
-      width: 100%;
-    }
-    .col-set.col-2 { grid-template-columns: 1fr 1fr; }
-    .col-set.col-3 { grid-template-columns: 1fr 1fr 1fr; }
-    .col-set.col-prj { grid-template-columns: 2fr 8fr 2fr; }
-    .col-set.col-info { grid-template-columns: 4fr 8fr; }
+    .col2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; width: 100%; }
+    .col3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; width: 100%; }
+    .col-prj { display: grid; grid-template-columns: 2fr 8fr 2fr; gap: 0.5rem; width: 100%; }
+    .col-info { display: grid; grid-template-columns: 4fr 8fr; gap: 2rem; width: 100%; }
 
-    /* page sections */
-    .page {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
+    .tl { text-align: left; }
+    .tr { text-align: right; }
+    .tc { text-align: center; }
 
-    .page-layout {
-      width: 100%;
-      max-width: 100%;
-      padding: 0.75rem;
-    }
-
-    .page-content {
-      padding: 0.75rem;
-      border-color: rgba(0,0,0,0.15);
-      border-style: solid;
-      border-width: 0rem;
-    }
-
-    /* ============================================================
-       [NAV] → navcss.txt + navhtml.txt
-       ============================================================ */
+    /* NAV */
     #nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 0.75rem;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100; padding: 0.75rem;
+      font-size: 1.1rem; font-weight: 650;
     }
 
-    /* ============================================================
-       [HEAD-ST] → headstcss.txt + headsthtml.txt
-       ============================================================ */
-    #headst {
-      text-align: center;
-      padding: 0.75rem;
-    }
+    /* HEAD-ST */
+    #headst { text-align: center; padding: 0.75rem; font-size: 1.1rem; font-weight: 650; }
 
-    /* ============================================================
-       [HEAD] → headcss.txt + headhtml.txt
-       ============================================================ */
+    /* HEAD */
     #head {
-      text-align: center;
-      padding-top: 8rem;
-      padding-bottom: 5rem;
-      padding-right: 2.5rem;
-      display: flex;
-      justify-content: center;
-      width: 100%;
+      text-align: center; padding-top: 8rem; padding-bottom: 5rem;
+      padding-right: 2.5rem; display: flex; justify-content: center;
+      width: 100%; padding-left: 0.75rem;
     }
-    #head .page-layout {
-      max-width: 85%;
-    }
+    #head .inner { max-width: 85%; width: 100%; }
 
-    /* ============================================================
-       [PRJ] → prjcss.txt + PRJHTML.txt
-       ============================================================ */
-    #prj {
-      padding: 0.75rem;
-      width: 100%;
-    }
+    /* PRJ */
+    #prj { padding: 0.75rem; width: 100%; font-size: 1.1rem; font-weight: 650; }
+    .prj-entry { margin-bottom: 4rem; }
 
-    .prj-entry {
-      margin-bottom: 4rem;
-    }
-
-    /* 슬라이드쇼 */
-    .slideshow {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      background: rgba(255,255,255,0.05);
-      margin: 0.75rem 0;
-    }
-
-    .slideshow-inner {
-      display: flex;
-      transition: transform 0.35s ease;
-    }
-
+    .slideshow { position: relative; width: 100%; overflow: hidden; margin: 0.75rem 0; }
+    .slideshow-inner { display: flex; transition: transform 0.35s ease; }
     .slide {
-      min-width: 100%;
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-width: 100%; aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
       background: rgba(255,255,255,0.08);
+      overflow: hidden;
     }
-
-    .slide-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.2);
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      letter-spacing: 0.1em;
-    }
-
+    .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .slide-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0 15px;
-      pointer-events: none;
+      position: absolute; top: 50%; transform: translateY(-50%);
+      display: flex; justify-content: space-between;
+      width: 100%; padding: 0 15px; pointer-events: none;
     }
-
     .slide-btn {
       pointer-events: all;
-      background: rgba(168,168,168,0.6);
-      border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      color: rgba(0,0,0,0.9);
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: rgba(168,168,168,0.6); border: none; border-radius: 50%;
+      width: 30px; height: 30px; cursor: pointer;
+      color: rgba(0,0,0,0.9); font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
       transition: opacity 0.2s;
     }
     .slide-btn:hover { opacity: 0.7; }
+    .slide-caption { text-align: right; padding: 0.4rem 0; }
 
-    .slide-caption {
-      text-align: right;
-      padding: 0.5rem 0.75rem;
-    }
-
-    /* ============================================================
-       [INFO] → infocss.txt + infohtml.txt
-       ============================================================ */
+    /* INFO */
     #info {
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      padding-top: 4.5rem;
-      padding-bottom: 7rem;
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-      text-align: left;
+      min-height: 100vh; display: flex; align-items: flex-start;
+      padding: 4.5rem 0.75rem 7rem;
+      font-size: 1.1rem; font-weight: 650;
     }
+    #info .inner { width: 100%; }
 
-    #info .page-layout {
-      width: 100%;
-    }
-
-    .info-portrait {
-      width: 100%;
-      aspect-ratio: 3/4;
+    .portrait {
+      width: 100%; aspect-ratio: 3/4;
       background: rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.2);
-      font-size: 0.7rem;
-      font-family: var(--font-mono);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.2); font-size: 0.7rem; font-family: var(--font-mono);
+      overflow: hidden;
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* FOOT-SQ */
+    #footsq { padding: 0.75rem; width: 100%; font-size: 1.1rem; font-weight: 650; }
+
+    /* FOOT */
+    #foot { padding: 0.75rem; width: 100%; font-size: 1.1rem; font-weight: 650; }
+    .digital-clock { font-family: var(--font-mono); }
+
+    /* OVERLAY */
+    #overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.4); backdrop-filter: blur(2rem);
+      align-items: flex-end; justify-content: flex-end;
+    }
+    #overlay.active { display: flex; }
+    #overlay-panel {
+      width: 33.33%; min-height: 100vh;
+      background: #111; border-left: 0.05rem solid rgba(255,255,255,0.15);
+      padding: 0.75rem; overflow-y: auto;
+      font-size: 1.1rem; font-weight: 650;
     }
 
-    /* ============================================================
-       [FOOT-SQ] → footsqcss.txt + footsqhtml.txt
-       ============================================================ */
-    #footsq {
-      padding: 0.75rem;
-      width: 100%;
+    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.5rem; margin-bottom: 1rem; }
+    .grid-item {
+      aspect-ratio: 1; background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.15); font-size: 0.6rem; font-family: var(--font-mono);
+      overflow: hidden;
     }
+    .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .grid-item.wide { grid-column: span 2; }
 
-    /* ============================================================
-       [FOOT] → footcss.txt + foothtml.txt
-       ============================================================ */
-    #foot {
-      padding: 0.75rem;
-      width: 100%;
-    }
-
-    /* 디지털 시계 */
-    .digital-clock {
-      font-family: var(--font-mono);
-    }
-
-    /* ============================================================
-       [EXPRJ] → exprjcss.txt + exprjhtml.txt (overlay)
-       모달 오버레이
-       ============================================================ */
-    #exprj-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(2rem);
-      align-items: flex-end;
-      justify-content: flex-end;
-    }
-
-    #exprj-overlay.active {
-      display: flex;
-    }
-
-    #exprj-panel {
-      width: 33.33%;
-      min-height: 100vh;
-      background-color: #111111;
-      border-left: 0.05rem solid rgba(255,255,255,0.15);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      padding: 0.75rem;
-      overflow-y: auto;
-    }
-
-    .exprj-content {
-      width: 100%;
-    }
-
-    /* 갤러리 그리드 */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .gallery-grid .grid-item {
-      aspect-ratio: 1;
-      background: rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.15);
-      font-size: 0.6rem;
-      font-family: var(--font-mono);
-    }
-
-    .gallery-grid .grid-item.wide {
-      grid-column: span 2;
-    }
-
-    /* 유틸 */
-    .text-left  { text-align: left; }
-    .text-right { text-align: right; }
-    .text-center{ text-align: center; }
-
-    .br { display: block; margin-bottom: 1rem; }
-    .br-sm { display: block; margin-bottom: 0.5rem; }
-
-    /* 스크롤 애니메이션 */
-    @keyframes scrollAnimationHelix-1 {
-      0%   { transform: perspective(4000px) rotateY(35deg) rotateZ(1.5deg); }
-      100% { transform: perspective(4000px) rotateY(-35deg) rotateZ(-1.5deg); }
-    }
-
-    /* SNS 아이콘 */
-    .social-links {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.9rem;
-    }
-
-    .social-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.3rem;
-      height: 1.3rem;
-      opacity: 0.75;
-      transition: opacity 0.15s;
-      flex-shrink: 0;
-    }
-
+    /* SNS */
+    .social-links { display: inline-flex; align-items: center; gap: 0.9rem; }
+    .social-icon { display: inline-flex; opacity: 0.75; transition: opacity 0.15s; }
     .social-icon:hover { opacity: 1; }
-    .social-icon:active { opacity: 0.5; }
+    .social-icon svg { fill: rgba(255,255,255,0.85); display: block; }
 
-    .social-icon svg {
-      width: 100%;
-      height: 100%;
-      fill: rgba(255,255,255,0.85);
-    }
-
-    /* 반응형 */
     @media (max-width: 768px) {
-      .col-set.col-prj,
-      .col-set.col-info,
-      .col-set.col-3 { grid-template-columns: 1fr; }
-      #exprj-panel { width: 100%; min-height: 100dvh; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .col-prj, .col-info, .col3 { grid-template-columns: 1fr; }
+      #overlay-panel { width: 100%; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
       #head { padding-right: 0.75rem; }
     }
   </style>
 </head>
-<body class="bodycopy">
+<body>
 
-  <!-- ============================================================
-       [NAV] navhtml.txt
-       Cargo에 넣을 위치: Navigation 페이지 블록의 HTML 에디터
-       ============================================================ -->
-  <!-- ============================================================
-       SNS 아이콘 SVG 정의 (재사용)
-       ============================================================ -->
-  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-    <symbol id="icon-instagram" viewBox="0 0 24 24">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-    </symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-    </symbol>
-  </svg>
+<script>
+/* ================================================================
+   ★ 여기만 수정하면 됩니다 ★
+   ================================================================ */
 
-  <nav id="nav" class="bodycopy">
-    <div class="col-set col-2">
-      <div class="text-left">
-        <a href="#" onclick="scrollToTop()">■ &nbsp;Cargo® Demo Site</a>
-      </div>
-      <div class="text-right" style="display:flex; align-items:center; justify-content:flex-end; gap:1.2rem;">
-        <!-- ▼ Cargo에서 href 안의 YOUR_INSTAGRAM, YOUR_LINKEDIN을 본인 계정 URL로 교체 -->
-        <span class="social-links">
-          <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
-            <svg><use href="#icon-instagram"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-            <svg><use href="#icon-linkedin"/></svg>
-          </a>
-        </span>
-        <a href="#info">Information &nbsp;■</a>
-      </div>
+const SITE = {
+  name:     "Jinho Baek",          /* 사이트 제목 (NAV 좌측) */
+  subtitle: "Los Angeles — CA / Illustrator & Motion Designer",  /* NAV 가운데 */
+  heading:  "Portfolio",           /* 메인 큰 제목 */
+  year:     "2025",                /* 푸터 연도 */
+  instagram: "YOUR_INSTAGRAM",    /* 인스타그램 계정명 */
+  linkedin:  "YOUR_LINKEDIN",     /* 링크드인 계정명 */
+};
+
+const INFO = {
+  portrait: "",   /* 프로필 이미지 경로. 예: "images/portrait.jpg" — 없으면 빈 칸 */
+  bio: `Jinho Baek, Based in Los Angeles, CA.
+Illustrator & Motion Designer.
+여기에 자기소개를 입력하세요.`,
+
+  contact: {
+    address: `Los Angeles, CA`,
+    email:   "your@email.com",
+  },
+
+  clients: [
+    "Client A",
+    "Client B",
+    "Client C",
+  ],
+
+  services: [
+    "Illustration",
+    "Motion Design",
+    "Brand Identity",
+  ],
+};
+
+/* ----------------------------------------------------------------
+   프로젝트 목록
+   ----------------------------------------------------------------
+   images 배열: 슬라이드쇼에 표시할 이미지 경로들
+   overlayImages 배열: 오른쪽 패널에 표시할 이미지 경로들 (없으면 images 사용)
+
+   이미지 경로 예시:
+     "images/project1-1.jpg"   ← 내 폴더에 넣은 경우
+     "https://..."             ← 외부 URL
+
+   프로젝트 추가: { } 블록을 복사해서 아래에 붙여넣으면 됩니다.
+   ---------------------------------------------------------------- */
+
+const PROJECTS = [
+  {
+    year:  "2025",
+    title: "첫 번째 프로젝트",
+    type:  "Poster",
+
+    /* 슬라이드쇼 이미지 — 없으면 빈 회색 박스로 표시 */
+    images: [
+      "images/project1-1.png",
+      "images/project1-2.png",
+    ],
+
+    /* 오버레이(More 클릭 시) 상세 이미지 — 없으면 슬라이드 이미지 재사용 */
+    overlayImages: [],
+
+    /* 오버레이 상세 정보 */
+    details:  "A2 사이즈, 에디션 100부, 2025",
+    overview: "작업 설명을 여기에 입력하세요. 이 프로젝트는 어떤 배경에서 시작됐는지, 어떤 과정을 거쳤는지 자유롭게 적으면 됩니다.",
+  },
+
+  /* 프로젝트 추가 예시 — 주석 해제하고 내용 입력
+  {
+    year:  "2024",
+    title: "두 번째 프로젝트",
+    type:  "Motion",
+    images: ["images/project2-1.jpg"],
+    overlayImages: [],
+    details:  "60초 애니메이션, 2024",
+    overview: "설명...",
+  },
+  */
+];
+
+/* ================================================================
+   ★ 여기 아래는 건드리지 않아도 됩니다 ★
+   ================================================================ */
+</script>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="col2" style="align-items:center;">
+    <div class="tl">
+      <a href="#" onclick="scrollTo({top:0,behavior:'smooth'});return false;">■ &nbsp;<span id="nav-name"></span></a>
     </div>
-  </nav>
-
-  <!-- ============================================================
-       [HEAD-ST] headsthtml.txt
-       Cargo에 넣을 위치: 상단 서브타이틀 페이지 블록
-       ============================================================ -->
-  <section id="headst" class="bodycopy">
-    <div style="padding-top: 3.5rem;">
-      Consectetur for Adipiscing Elit, 1234 Malesuada Rex, Elemeu, AB 349—5874 XYZ
-    </div>
-  </section>
-
-  <!-- ============================================================
-       [HEAD] headhtml.txt
-       Cargo에 넣을 위치: 메인 헤딩 페이지 블록
-       ============================================================ -->
-  <section id="head">
-    <div class="page-layout">
-      <h1>WebSit<br>492</h1>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       [PRJ] PRJHTML.txt
-       Cargo에 넣을 위치: Projects 페이지 블록의 HTML 에디터
-       ============================================================ -->
-  <section id="prj" class="bodycopy">
-
-    <!-- Project A -->
-    <div class="prj-entry">
-      <div class="col-set col-prj">
-        <div class="text-left">■ &nbsp;2046</div>
-        <div>Example Project A, Paperback Book</div>
-        <div class="text-right">
-          <a href="#" onclick="openOverlay('Example Project 001', 'Paperback Book'); return false;">More &nbsp;→</a>
-        </div>
-      </div>
-      <div class="br-sm"></div>
-      <div class="slideshow" id="ss-a">
-        <div class="slideshow-inner">
-          <div class="slide"><div class="slide-placeholder">IMAGE 01 / 02</div></div>
-          <div class="slide"><div class="slide-placeholder">IMAGE 02 / 02</div></div>
-        </div>
-        <div class="slide-nav">
-          <button class="slide-btn" onclick="prevSlide('ss-a')">‹</button>
-          <button class="slide-btn" onclick="nextSlide('ss-a')">›</button>
-        </div>
-        <div class="slide-caption caption" id="ss-a-cap">01 / 02</div>
-      </div>
-    </div>
-
-    <!-- Project B -->
-    <div class="prj-entry">
-      <div class="col-set col-prj">
-        <div class="text-left">■ &nbsp;2045</div>
-        <div>Example Project B, Website</div>
-        <div class="text-right">
-          <a href="#" onclick="openOverlay('Example Project 001', 'Website'); return false;">More &nbsp;→</a>
-        </div>
-      </div>
-      <div class="br-sm"></div>
-      <div class="slideshow" id="ss-b">
-        <div class="slideshow-inner">
-          <div class="slide"><div class="slide-placeholder">IMAGE 01 / 02</div></div>
-          <div class="slide"><div class="slide-placeholder">IMAGE 02 / 02</div></div>
-        </div>
-        <div class="slide-nav">
-          <button class="slide-btn" onclick="prevSlide('ss-b')">‹</button>
-          <button class="slide-btn" onclick="nextSlide('ss-b')">›</button>
-        </div>
-        <div class="slide-caption caption" id="ss-b-cap">01 / 02</div>
-      </div>
-    </div>
-
-    <!-- Project C -->
-    <div class="prj-entry">
-      <div class="col-set col-prj">
-        <div class="text-left">■ &nbsp;2044</div>
-        <div>Example Project C, Postcard</div>
-        <div class="text-right">
-          <a href="#" onclick="openOverlay('Example Project 001', 'Postcard'); return false;">More &nbsp;→</a>
-        </div>
-      </div>
-      <div class="br-sm"></div>
-      <div class="slideshow" id="ss-c">
-        <div class="slideshow-inner">
-          <div class="slide"><div class="slide-placeholder">IMAGE 01 / 02</div></div>
-          <div class="slide"><div class="slide-placeholder">IMAGE 02 / 02</div></div>
-        </div>
-        <div class="slide-nav">
-          <button class="slide-btn" onclick="prevSlide('ss-c')">‹</button>
-          <button class="slide-btn" onclick="nextSlide('ss-c')">›</button>
-        </div>
-        <div class="slide-caption caption" id="ss-c-cap">01 / 02</div>
-      </div>
-    </div>
-
-    <!-- Project D -->
-    <div class="prj-entry">
-      <div class="col-set col-prj">
-        <div class="text-left">■ &nbsp;2043</div>
-        <div>Example Project D, Poster</div>
-        <div class="text-right">
-          <a href="#" onclick="openOverlay('Example Project 001', 'Poster'); return false;">More &nbsp;→</a>
-        </div>
-      </div>
-      <div class="br-sm"></div>
-      <div class="slideshow" id="ss-d">
-        <div class="slideshow-inner">
-          <div class="slide"><div class="slide-placeholder">IMAGE 01 / 02</div></div>
-          <div class="slide"><div class="slide-placeholder">IMAGE 02 / 02</div></div>
-        </div>
-        <div class="slide-nav">
-          <button class="slide-btn" onclick="prevSlide('ss-d')">‹</button>
-          <button class="slide-btn" onclick="nextSlide('ss-d')">›</button>
-        </div>
-        <div class="slide-caption caption" id="ss-d-cap">01 / 02</div>
-      </div>
-    </div>
-
-    <!-- Project E -->
-    <div class="prj-entry">
-      <div class="col-set col-prj">
-        <div class="text-left">■ &nbsp;2042</div>
-        <div>Example Project E, Website</div>
-        <div class="text-right">
-          <a href="#" onclick="openOverlay('Example Project 001', 'Website'); return false;">More &nbsp;→</a>
-        </div>
-      </div>
-      <div class="br-sm"></div>
-      <div class="slideshow" id="ss-e">
-        <div class="slideshow-inner">
-          <div class="slide"><div class="slide-placeholder">IMAGE 01 / 02</div></div>
-          <div class="slide"><div class="slide-placeholder">IMAGE 02 / 02</div></div>
-        </div>
-        <div class="slide-nav">
-          <button class="slide-btn" onclick="prevSlide('ss-e')">‹</button>
-          <button class="slide-btn" onclick="nextSlide('ss-e')">›</button>
-        </div>
-        <div class="slide-caption caption" id="ss-e-cap">01 / 02</div>
-      </div>
-    </div>
-
-    <!-- Project F -->
-    <div class="prj-entry">
-      <div class="col-set col-prj">
-        <div class="text-left">■ &nbsp;2041</div>
-        <div>Example Project F, Limited Print</div>
-        <div class="text-right">
-          <a href="#" onclick="openOverlay('Example Project 001', 'Limited Print'); return false;">More &nbsp;→</a>
-        </div>
-      </div>
-      <div class="br-sm"></div>
-      <div class="slideshow" id="ss-f">
-        <div class="slideshow-inner">
-          <div class="slide"><div class="slide-placeholder">IMAGE 01 / 02</div></div>
-          <div class="slide"><div class="slide-placeholder">IMAGE 02 / 02</div></div>
-        </div>
-        <div class="slide-nav">
-          <button class="slide-btn" onclick="prevSlide('ss-f')">‹</button>
-          <button class="slide-btn" onclick="nextSlide('ss-f')">›</button>
-        </div>
-        <div class="slide-caption caption" id="ss-f-cap">01 / 02</div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ============================================================
-       [INFO] infohtml.txt
-       Cargo에 넣을 위치: Information 페이지 블록의 HTML 에디터
-       ============================================================ -->
-  <section id="info" class="bodycopy">
-    <div class="page-layout">
-
-      <!-- 상단 이미지 + 소개글 -->
-      <div class="col-set col-info" style="gap: 2rem; margin-bottom: 2rem;">
-        <div>
-          <div class="info-portrait">[ portrait ]</div>
-        </div>
-        <div>
-          <h2>Consectetur for Adipiscing Elit, Based in Lorem Ipsum, 3002, CA. Integer et placerat est, eu imperdiet neque. Proin sit amet purus metus. In nec efficitur justo, sed maximus est. Ut ornare arcu eros, at condimentum enim imperdiet vitae. Morbi lorem augue, commodo vel ipsum ac, sollicitudin placerat urna.&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Praesent sit amet mauris tortor. Duis ac risus sem integer et placerat est, eu imperdiet neque. Proin sit amet purus metus. In nec efficitur justo, sed maximus est. Ut ornare arcu eros, at condimentum enim imperdiet vitae. Morbi lorem augue, commodo vel ipsum ac, sollicitudin placerat urna. Praesent sit amet mauris tortor. Duis ac risus sem. Fusce at elementum justo, ac mollis turpis. Pellentesque accumsan purus ut tristique bibendum. Nam feugiat sit amet enim in vehicula.</h2>
-        </div>
-      </div>
-
-      <div class="br"></div>
-
-      <!-- 구분선 -->
-      <div class="col-set col-2">
-        <div class="text-left">■</div>
-        <div class="text-right">■</div>
-      </div>
-
-      <div class="br"></div>
-
-      <!-- Contact / Clients / Services -->
-      <div class="col-set col-3" style="gap: 2rem;">
-        <div>
-          Contact<br><br>
-          Lorem Ipsum<br>
-          1234 Malesuada Rex<br>
-          Elemeu, AB<br>
-          349—5874 XYZ<br><br>
-          <a href="#">Email</a><br><br>
-          <!-- ▼ Cargo에서 href 안의 YOUR_INSTAGRAM, YOUR_LINKEDIN을 본인 계정 URL로 교체 -->
-          <span class="social-links">
-            <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
-              <svg><use href="#icon-instagram"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-              <svg><use href="#icon-linkedin"/></svg>
-            </a>
-          </span>
-        </div>
-        <div>
-          Selected Clients<br><br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Euismod Gravida<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Tristique<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Phasellus Ornare<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Faucibus<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Porta Libero<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Duis Quam<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Mattis Sollicitudin<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Parturient Felis
-        </div>
-        <div>
-          Services<br><br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Nunc Vulputate<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Praesent Porttitor<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Venenatis Lacus<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Sed Mollis<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Nulla varius<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Nec Porta / Tempus<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Nunc Orci Enim<br>
-          &nbsp;&nbsp;&nbsp;&nbsp; Bibendum Gravida
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-       [FOOT-SQ] footsqhtml.txt
-       Cargo에 넣을 위치: Footer Square 페이지 블록
-       ============================================================ -->
-  <section id="footsq" class="bodycopy">
-    <div class="col-set col-2">
-      <div class="text-left">■</div>
-      <div class="text-right">■</div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       [FOOT] foothtml.txt
-       Cargo에 넣을 위치: Footer 페이지 블록의 HTML 에디터
-       ============================================================ -->
-  <footer id="foot" class="bodycopy">
-    <div class="col-set col-3">
-      <div class="text-left">
-        &nbsp;&nbsp;&nbsp; <span class="digital-clock" id="clock"></span>&nbsp;
-      </div>
-      <div class="text-center">© 2046</div>
-      <div class="text-right">Cargo® &nbsp;&nbsp;&nbsp;</div>
-    </div>
-  </footer>
-
-  <!-- ============================================================
-       [EXPRJ] exprjhtml.txt
-       Cargo에 넣을 위치: 프로젝트 상세 오버레이 페이지 블록
-       ============================================================ -->
-  <div id="exprj-overlay" onclick="handleOverlayClick(event)">
-    <div id="exprj-panel">
-      <div class="exprj-content bodycopy">
-
-        <!-- 제목 행 -->
-        <div class="col-set col-2" style="margin-bottom: 1rem;">
-          <div class="text-left">■ &nbsp;<span id="overlay-title">Example Project 001</span></div>
-          <div class="text-right">
-            <a href="#" onclick="closeOverlay(); return false;">✕</a>
-          </div>
-        </div>
-
-        <!-- 이미지 그리드 -->
-        <div class="gallery-grid" style="margin-bottom: 1rem;">
-          <div class="grid-item">img</div>
-          <div class="grid-item">img</div>
-          <div class="grid-item">img</div>
-          <div class="grid-item wide">img</div>
-          <div class="grid-item">img</div>
-        </div>
-
-        <!-- 상세 + 개요 -->
-        <div class="col-set col-2" style="gap: 1rem;">
-          <div>
-            <hr>Details<br><br>
-            <span id="overlay-type">Paperback Book</span><br>
-            192pp, 20 x 30cm<br>
-            Edition of 300<br>
-            Printed by Lorem<br>
-            2045
-          </div>
-          <div>
-            <hr>Overview<br><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nisl metus, accumsan id eros id, vehicula tincidunt nisl. Nulla sit amet urna ut mi tempor euismod. Fusce elementum sapien eget elit sodales fringilla. Pellentesque et nulla vel velit malesuada fermentum vitae vitae justo.<br><br>
-            Vestibulum et dignissim magna. Nullam at ultrices felis. Suspendisse facilisis sagittis sem sit amet tempor. Nam sit amet nibh et enim laoreet porta sit amet vel purus. Maecenas augue velit, feugiat in maximus id, auctor vel ex.
-          </div>
-        </div>
-
-      </div>
+    <div class="tr" style="display:flex;align-items:center;justify-content:flex-end;gap:1.2rem;">
+      <span id="nav-subtitle" style="position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;"></span>
+      <span class="social-links">
+        <a id="nav-ig" href="#" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a id="nav-li" href="#" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </span>
+      <a href="#info">Information &nbsp;■</a>
     </div>
   </div>
+</nav>
 
-  <!-- ============================================================
-       JavaScript
-       ============================================================ -->
-  <script>
-    /* 디지털 시계 (foothtml 재현) */
-    function updateClock() {
-      const now = new Date();
-      // UTC-8 (Cargo 템플릿 기준)
-      const offset = -8 * 60;
-      const local = new Date(now.getTime() + (now.getTimezoneOffset() + offset) * 60000);
-      let h = local.getHours();
-      const m = String(local.getMinutes()).padStart(2, '0');
-      const s = String(local.getSeconds()).padStart(2, '0');
-      const period = h >= 12 ? 'PM' : 'AM';
-      h = h % 12 || 12;
-      document.getElementById('clock').textContent = `${h}:${m}:${s} ${period}`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
+<!-- HEAD-ST -->
+<section id="headst"><span id="headst-text"></span></section>
 
-    /* 슬라이드쇼 */
-    const slideState = {};
+<!-- HEAD -->
+<section id="head">
+  <div class="inner">
+    <h1 id="head-title"></h1>
+  </div>
+</section>
 
-    function getSlideshow(id) {
-      if (!slideState[id]) slideState[id] = { current: 0, total: 2 };
-      return slideState[id];
-    }
+<!-- PRJ -->
+<section id="prj">
+  <div id="prj-list"></div>
+</section>
 
-    function updateSlide(id) {
-      const ss = document.getElementById(id);
-      const state = getSlideshow(id);
-      const inner = ss.querySelector('.slideshow-inner');
-      inner.style.transform = `translateX(-${state.current * 100}%)`;
-      const cap = document.getElementById(id + '-cap');
-      if (cap) cap.textContent = `${String(state.current + 1).padStart(2,'0')} / ${String(state.total).padStart(2,'0')}`;
-    }
+<!-- INFO -->
+<section id="info">
+  <div class="inner">
+    <div class="col-info" style="margin-bottom:2rem;">
+      <div><div class="portrait" id="portrait-wrap"></div></div>
+      <div><h2 id="info-bio"></h2></div>
+    </div>
+    <div style="margin-bottom:1rem;">
+      <div class="col2"><div class="tl">■</div><div class="tr">■</div></div>
+    </div>
+    <div class="col3" style="gap:2rem;">
+      <div id="info-contact"></div>
+      <div id="info-clients"></div>
+      <div id="info-services"></div>
+    </div>
+  </div>
+</section>
 
-    function nextSlide(id) {
-      const state = getSlideshow(id);
-      state.current = (state.current + 1) % state.total;
-      updateSlide(id);
-    }
+<!-- FOOT-SQ -->
+<section id="footsq">
+  <div class="col2"><div class="tl">■</div><div class="tr">■</div></div>
+</section>
 
-    function prevSlide(id) {
-      const state = getSlideshow(id);
-      state.current = (state.current - 1 + state.total) % state.total;
-      updateSlide(id);
-    }
+<!-- FOOT -->
+<footer id="foot">
+  <div class="col2" style="grid-template-columns:1fr auto 1fr;gap:0.5rem;">
+    <div class="tl">&nbsp;&nbsp;&nbsp;<span class="digital-clock" id="clock"></span>&nbsp;</div>
+    <div class="tc">© <span id="foot-year"></span></div>
+    <div class="tr"><span id="foot-name"></span>&nbsp;&nbsp;&nbsp;</div>
+  </div>
+</footer>
 
-    /* 오버레이 */
-    function openOverlay(title, type) {
-      document.getElementById('overlay-title').textContent = title;
-      document.getElementById('overlay-type').textContent = type;
-      document.getElementById('exprj-overlay').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+<!-- OVERLAY -->
+<div id="overlay" onclick="handleOverlayClick(event)">
+  <div id="overlay-panel">
+    <div class="col2" style="margin-bottom:1rem;">
+      <div class="tl">■ &nbsp;<span id="ov-title"></span></div>
+      <div class="tr"><a href="#" onclick="closeOverlay();return false;">✕</a></div>
+    </div>
+    <div class="gallery-grid" id="ov-grid" style="margin-bottom:1rem;"></div>
+    <div class="col2" style="gap:1rem;">
+      <div><hr>Details<br><br><span id="ov-details"></span></div>
+      <div><hr>Overview<br><br><span id="ov-overview"></span></div>
+    </div>
+  </div>
+</div>
 
-    function closeOverlay() {
-      document.getElementById('exprj-overlay').classList.remove('active');
-      document.body.style.overflow = '';
-    }
+<script>
+/* --- 데이터 렌더링 --- */
 
-    function handleOverlayClick(e) {
-      if (e.target === document.getElementById('exprj-overlay')) closeOverlay();
-    }
+// NAV
+document.getElementById('nav-name').textContent = SITE.name;
+document.getElementById('nav-subtitle').textContent = SITE.subtitle;
+document.getElementById('nav-ig').href = `https://www.instagram.com/${SITE.instagram}`;
+document.getElementById('nav-li').href = `https://www.linkedin.com/in/${SITE.linkedin}`;
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+// HEAD
+document.getElementById('headst-text').textContent = SITE.subtitle;
+document.getElementById('head-title').textContent = SITE.heading;
+document.title = SITE.name;
 
-    /* 키보드 닫기 */
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeOverlay();
-    });
-  </script>
+// FOOTER
+document.getElementById('foot-year').textContent = SITE.year;
+document.getElementById('foot-name').textContent = SITE.name;
+
+// INFO — 프로필 이미지
+const portraitWrap = document.getElementById('portrait-wrap');
+if (INFO.portrait) {
+  portraitWrap.innerHTML = `<img src="${INFO.portrait}" alt="portrait">`;
+} else {
+  portraitWrap.textContent = '[ portrait ]';
+}
+
+// INFO — 바이오
+document.getElementById('info-bio').innerHTML = INFO.bio.replace(/\n/g, '<br>');
+
+// INFO — Contact
+document.getElementById('info-contact').innerHTML = `
+  Contact<br><br>
+  ${INFO.contact.address.replace(/\n/g,'<br>')}<br><br>
+  <a href="mailto:${INFO.contact.email}">${INFO.contact.email}</a><br><br>
+  <span class="social-links">
+    <a href="https://www.instagram.com/${SITE.instagram}" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="rgba(255,255,255,0.85)"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/${SITE.linkedin}" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="rgba(255,255,255,0.85)"/></svg>
+    </a>
+  </span>
+`;
+
+// INFO — Clients / Services
+document.getElementById('info-clients').innerHTML =
+  'Selected Clients<br><br>' + INFO.clients.map(c => `&nbsp;&nbsp;&nbsp;&nbsp;${c}`).join('<br>');
+document.getElementById('info-services').innerHTML =
+  'Services<br><br>' + INFO.services.map(s => `&nbsp;&nbsp;&nbsp;&nbsp;${s}`).join('<br>');
+
+// PRJ — 슬라이드쇼 생성
+const prjList = document.getElementById('prj-list');
+const slideState = {};
+
+PROJECTS.forEach((prj, i) => {
+  const id = `ss-${i}`;
+  const total = prj.images.length || 1;
+  slideState[id] = { current: 0, total };
+
+  const slidesHTML = total === 0
+    ? `<div class="slide"><div style="color:rgba(255,255,255,0.2);font-size:0.75rem;font-family:var(--font-mono);">IMAGE</div></div>`
+    : prj.images.map(src =>
+        `<div class="slide"><img src="${src}" alt="${prj.title}" loading="lazy"></div>`
+      ).join('');
+
+  prjList.innerHTML += `
+    <div class="prj-entry">
+      <div class="col-prj">
+        <div class="tl">■ &nbsp;${prj.year}</div>
+        <div>${prj.title}, ${prj.type}</div>
+        <div class="tr">
+          <a href="#" onclick="openOverlay(${i});return false;">More &nbsp;→</a>
+        </div>
+      </div>
+      <div style="margin-top:0.5rem;"></div>
+      <div class="slideshow" id="${id}">
+        <div class="slideshow-inner">${slidesHTML}</div>
+        ${total > 1 ? `
+        <div class="slide-nav">
+          <button class="slide-btn" onclick="prevSlide('${id}')">‹</button>
+          <button class="slide-btn" onclick="nextSlide('${id}')">›</button>
+        </div>` : ''}
+        <div class="slide-caption caption" id="${id}-cap">
+          ${total > 1 ? `01 / ${String(total).padStart(2,'0')}` : ''}
+        </div>
+      </div>
+    </div>
+  `;
+});
+
+/* --- 슬라이드쇼 --- */
+function updateSlide(id) {
+  const ss = document.getElementById(id);
+  const state = slideState[id];
+  ss.querySelector('.slideshow-inner').style.transform = `translateX(-${state.current * 100}%)`;
+  const cap = document.getElementById(id + '-cap');
+  if (cap && state.total > 1)
+    cap.textContent = `${String(state.current+1).padStart(2,'0')} / ${String(state.total).padStart(2,'0')}`;
+}
+function nextSlide(id) {
+  slideState[id].current = (slideState[id].current + 1) % slideState[id].total;
+  updateSlide(id);
+}
+function prevSlide(id) {
+  slideState[id].current = (slideState[id].current - 1 + slideState[id].total) % slideState[id].total;
+  updateSlide(id);
+}
+
+/* --- 오버레이 --- */
+function openOverlay(i) {
+  const prj = PROJECTS[i];
+  document.getElementById('ov-title').textContent = `${prj.title}`;
+  document.getElementById('ov-details').innerHTML = `${prj.type}<br>${prj.details}`;
+  document.getElementById('ov-overview').textContent = prj.overview;
+
+  const imgs = (prj.overlayImages && prj.overlayImages.length) ? prj.overlayImages : prj.images;
+  const grid = document.getElementById('ov-grid');
+  if (imgs.length) {
+    grid.innerHTML = imgs.map((src, idx) =>
+      `<div class="grid-item${idx===3?' wide':''}"><img src="${src}" alt="${prj.title}" loading="lazy"></div>`
+    ).join('');
+  } else {
+    grid.innerHTML = `<div class="grid-item">img</div><div class="grid-item">img</div><div class="grid-item">img</div>`;
+  }
+
+  document.getElementById('overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay() {
+  document.getElementById('overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('overlay')) closeOverlay();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+
+/* --- 시계 --- */
+function updateClock() {
+  const now = new Date();
+  let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+  const p = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  document.getElementById('clock').textContent =
+    `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${p}`;
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
 
 </body>
 </html>
