@@ -1,0 +1,3 @@
+[id="F0408198011"] .page-content {
+	text-align: center;
+}

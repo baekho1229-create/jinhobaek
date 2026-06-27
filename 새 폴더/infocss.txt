@@ -1,0 +1,10 @@
+[id="L0482970393"].page {
+	min-height: var(--viewport-height);
+}
+
+[id="L0482970393"] .page-content {
+	align-items: flex-start;
+	text-align: left;
+	padding-top: 4.5rem;
+	padding-bottom: 7rem;
+}

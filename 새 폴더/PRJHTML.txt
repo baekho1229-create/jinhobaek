@@ -1,0 +1,42 @@
+<column-set gutter="0.5rem" mobile-hide-empty="false" mobile-stack="false"><column-unit slot="0" span="2"><div style="text-align: left">■ &nbsp;2046</div></column-unit><column-unit slot="1" span="8">Example Project A, Paperback Book</column-unit><column-unit slot="2" span="2"><div style="text-align: right"><a href="example-project" rel="history">More &nbsp;→</a></div></column-unit></column-set><br>
+<br>
+<gallery-slideshow autoplay="false" disable-zoom="true" limit-by="height" mobile-limit-by="width" mobile-navigation="buttons" navigation="cursor-zones" transition-speed="0"><media-item class="" hash="J2744124696189716545617913119015" limit-by="width" rotation="0" scale="100" slot="slot-0"><figcaption class="caption" slot="caption">02 / 02</figcaption></media-item><media-item class="" hash="V2744124465586968880174808367399" limit-by="width" rotation="0" scale="100" slot="slot-1"><figcaption class="caption" slot="caption">01 / 02</figcaption></media-item></gallery-slideshow><br>
+<br>
+<br>
+<br>
+<br>
+<column-set gutter="0.5rem" mobile-hide-empty="false" mobile-stack="false"><column-unit slot="0" span="2"><div style="text-align: left">■ &nbsp;2045</div></column-unit><column-unit slot="1" span="8">Example Project B, Website</column-unit><column-unit slot="2" span="2"><div style="text-align: right"><div style="text-align: right"><a href="example-project" rel="history">More &nbsp;→</a></div></div></column-unit></column-set><br>
+<br>
+<gallery-slideshow autoplay="false" disable-zoom="true" limit-by="height" mobile-limit-by="width" mobile-navigation="buttons" navigation="cursor-zones" transition-speed="0"><media-item class="" hash="Z2744124696226610033765332222247" limit-by="width" rotation="0" scale="100" slot="slot-0"><figcaption class="caption" slot="caption">02 / 02</figcaption></media-item><media-item class="" hash="Q2744124465623862368322227470631" limit-by="width" rotation="0" scale="100" slot="slot-1"><figcaption class="caption" slot="caption">01 / 02</figcaption></media-item></gallery-slideshow><br>
+<br>
+<br>
+<br>
+<br>
+<column-set gutter="0.5rem" mobile-hide-empty="false" mobile-stack="false"><column-unit slot="0" span="2"><div style="text-align: left">■ &nbsp;2044</div></column-unit><column-unit slot="1" span="8">Example Project C, Postcard</column-unit><column-unit slot="2" span="2"><div style="text-align: right"><a href="example-project" rel="history">More &nbsp;→</a></div></column-unit></column-set><br>
+<br>
+<gallery-slideshow autoplay="false" disable-zoom="true" limit-by="height" mobile-limit-by="width" mobile-navigation="buttons" navigation="cursor-zones" transition-speed="0"><media-item class="" hash="R2744124696208163289691622670631" limit-by="width" rotation="0" scale="100" slot="slot-0"><figcaption class="caption" slot="caption">02 / 02</figcaption></media-item><media-item class="" hash="P2744124465605415624248517919015" limit-by="width" rotation="0" scale="100" slot="slot-1"><figcaption class="caption" slot="caption">01 / 02</figcaption></media-item></gallery-slideshow><br>
+<br>
+<br>
+<br>
+<br>
+<column-set gutter="0.5rem" mobile-hide-empty="false" mobile-stack="false"><column-unit slot="0" span="2"><div style="text-align: left">■ &nbsp;2043</div></column-unit><column-unit slot="1" span="8">Example Project D, Poster</column-unit><column-unit slot="2" span="2"><div style="text-align: right"><a href="example-project" rel="history">More &nbsp;→</a></div></column-unit></column-set><br>
+<br>
+<gallery-slideshow autoplay="false" disable-zoom="true" limit-by="height" mobile-limit-by="width" mobile-navigation="buttons" navigation="cursor-zones" transition-speed="0"><media-item class="" hash="J2744124696189716545617913119015" limit-by="width" rotation="0" scale="100" slot="slot-0"><figcaption class="caption" slot="caption">02 / 02</figcaption></media-item><media-item class="" hash="V2744124465586968880174808367399" limit-by="width" rotation="0" scale="100" slot="slot-1"><figcaption class="caption" slot="caption">01 / 02</figcaption></media-item></gallery-slideshow><br>
+<br>
+<br>
+<br>
+<br>
+<column-set gutter="0.5rem" mobile-hide-empty="false" mobile-stack="false"><column-unit slot="0" span="2"><div style="text-align: left">■ &nbsp;2042</div></column-unit><column-unit slot="1" span="8">Example Project E, Website</column-unit><column-unit slot="2" span="2"><div style="text-align: right"><a href="example-project" rel="history">More &nbsp;→</a></div></column-unit></column-set><br>
+<br>
+<gallery-slideshow autoplay="false" disable-zoom="true" limit-by="height" mobile-limit-by="width" mobile-navigation="buttons" navigation="cursor-zones" transition-speed="0"><media-item class="" hash="Z2744124696226610033765332222247" limit-by="width" rotation="0" scale="100" slot="slot-0"><figcaption class="caption" slot="caption">02 / 02</figcaption></media-item><media-item class="" hash="Q2744124465623862368322227470631" limit-by="width" rotation="0" scale="100" slot="slot-1"><figcaption class="caption" slot="caption">01 / 02</figcaption></media-item></gallery-slideshow><br>
+<br>
+<br>
+<br>
+<br>
+<column-set gutter="0.5rem" mobile-hide-empty="false" mobile-stack="false"><column-unit slot="0" span="2"><div style="text-align: left">■ &nbsp;2041</div></column-unit><column-unit slot="1" span="8">Example Project F, Limited Print</column-unit><column-unit slot="2" span="2"><div style="text-align: right"><a href="example-project" rel="history">More &nbsp;→</a></div></column-unit></column-set><br>
+<br>
+<gallery-slideshow autoplay="false" disable-zoom="true" limit-by="height" mobile-limit-by="width" mobile-navigation="buttons" navigation="cursor-zones" transition-speed="0"><media-item class="" hash="R2744124696208163289691622670631" limit-by="width" rotation="0" scale="100" slot="slot-0"><figcaption class="caption" slot="caption">02 / 02</figcaption></media-item><media-item class="" hash="P2744124465605415624248517919015" limit-by="width" rotation="0" scale="100" slot="slot-1"><figcaption class="caption" slot="caption">01 / 02</figcaption></media-item></gallery-slideshow><br>
+<br>
+<br>
+<br>
+<br>

@@ -1,0 +1,17 @@
+[id="A3450217662"] .page-layout {
+	max-width: 33.33%;
+	padding: 0.75rem;
+}
+
+[id="A3450217662"] .page-content {
+	border-width: 0.05rem;
+	border-color: rgba(255, 255, 255, 0.15);
+	align-items: flex-start;
+	text-align: left;
+	background-color: #111111;
+}
+
+[id="A3450217662"].page {
+	justify-content: flex-end;
+	min-height: var(--viewport-height);
+}
